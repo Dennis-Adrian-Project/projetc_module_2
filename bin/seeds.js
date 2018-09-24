@@ -6,6 +6,8 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
+const Place = require("../models/Place");
+
 
 const bcryptSalt = 10;
 
@@ -29,19 +31,42 @@ let users = [
   }
 ]
 
-User.deleteMany()
-.then(() => {
-  return User.create(users)
-})
-.then(usersCreated => {
-  console.log(`${usersCreated.length} users created with the following id:`);
-  console.log(usersCreated.map(u => u._id));
-})
-.then(() => {
-  // Close properly the connection to Mongoose
-  mongoose.disconnect()
-})
-.catch(err => {
-  mongoose.disconnect()
-  throw err
-})
+User.collection.drop();
+
+
+
+let places = [
+  {
+    title: "Matadero",
+    image: "",
+    location: {
+      type: "point",
+      coordinates: [40.392486,-3.698563]
+    },
+    shortDesc: "El matadero y mercado municipal de ganados de Madrid fue diseñado a finales del ...",
+    longDesc: "El matadero y mercado municipal de ganados de Madrid fue diseñado a finales del s.XIX con el objetivo de paliar los problemas de salubridad que sufría la ciudad. Desde entonces ha servido no solo como matadero industrial y plaza de mercado, sino también como almacén de municiones y de patatas. En 2005 se aprueba el plan que lo convierte en el centro cultural que conocemos hoy."
+  },
+  {
+    name: "El caballo de Felipe III",
+    lat: 40.392486 ,
+    lng: -3.698563,
+    shortDesc: "Durante mucho tiempo, esta famosa estatua no fue solo conocida por...",
+    longDesc: "Durante mucho tiempo, esta famosa estatua no fue solo conocida por su porte y su céntrica ubicación, sino también por desprender un olor nauseabundo que no dejaba indiferente a nadie que visitase la Plaza Mayor. Mucho creían que este olor provenía de un cementerio visigodo que habría bajo aquel lugar, pero durante la proclamación de la II República, descubrieron que realmente era una trampa mortal para pájaros que no conseguían volver a salir."
+  }
+]
+
+Place.collection.drop()
+
+
+
+
+ 
+
+Promise.all([Place.create(places), User.create(users),]).then(values => { 
+    // Close properly the connection to Mongoose
+    mongoose.disconnect()
+  })
+  .catch(err => {
+    mongoose.disconnect()
+    throw err
+  })
