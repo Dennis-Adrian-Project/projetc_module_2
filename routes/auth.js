@@ -65,7 +65,7 @@ function checkRoles(role) {
     if (req.isAuthenticated() && req.user.role === role) {
       return next();
     } else {
-      res.redirect('/login')
+      res.redirect('/auth/login')
     }
   }
 }
@@ -80,11 +80,11 @@ router.get('/', checkRoles('GUEST'), (req, res) => {
 });
 
 router.get('/create', checkRoles('ADMIN'), (req, res) => {
-  res.render('/auth/create', {user: req.user});
+  res.render('create', {user: req.user});
 });
 
-router.get('/histories', checkRoles('MEMBER'), (req, res) => {
-  res.render('auth/histories', {user: req.user});
+router.get('/histories', checkRoles('MEMBER') , (req, res) => {
+  res.render('histories', {user: req.user});
 });
 
 module.exports = router;
