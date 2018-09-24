@@ -28,6 +28,7 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
+
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -80,6 +81,8 @@ app.use('/', index);
 
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
+
+
       
 
 module.exports = app;

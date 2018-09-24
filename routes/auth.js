@@ -27,7 +27,8 @@ router.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
   const email = req.body.email;
-  const admin = Boolean(req.body.admin);
+  
+
   if (username === "" || password === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
     return;
@@ -46,7 +47,7 @@ router.post("/signup", (req, res, next) => {
       username,
       password: hashPass,
       email,
-      isAdmin: admin,
+      role:"MEMBER"
     });
 
     newUser.save()
@@ -59,9 +60,31 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
+function checkRoles(role) {
+  return function(req, res, next) {
+    if (req.isAuthenticated() && req.user.role === role) {
+      return next();
+    } else {
+      res.redirect('/login')
+    }
+  }
+}
+
 router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
+});
+
+router.get('/', checkRoles('GUEST'), (req, res) => {
+  res.render('index', {user: req.user});
+});
+
+router.get('/create', checkRoles('ADMIN'), (req, res) => {
+  res.render('/auth/create', {user: req.user});
+});
+
+router.get('/histories', checkRoles('MEMBER'), (req, res) => {
+  res.render('auth/histories', {user: req.user});
 });
 
 module.exports = router;

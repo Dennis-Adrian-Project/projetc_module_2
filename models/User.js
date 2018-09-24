@@ -6,7 +6,11 @@ const userSchema = new Schema({
   username: String,
   email: { type: mongoose.SchemaTypes.Email },
   password: String,
-  isAdmin: { type: Boolean, default: false },
+  role: {
+    type: String,
+    enum : ['GUEST', 'MEMBER', 'ADMIN'],
+    default : 'GUEST'
+  },
 });
 
 userSchema.set('timestamps', true);
