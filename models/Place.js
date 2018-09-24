@@ -3,10 +3,13 @@ const Schema = mongoose.Schema;
 
 const placeSchema = new Schema({
   title: String,
-  description: String,
-  location: { type: { type: String }, coordinates: [Number] }
+  image: String,
+  location: { type: { type: String }, coordinates: [Number]},
+  shortDesc: String,
+  longDesc: String
 });
 
 placeSchema.index({ location: '2dsphere' });
 
-module.exports = mongoose.model('place', placeSchema);
+const Place = mongoose.model('Place', placeSchema);
+module.exports = Place;
