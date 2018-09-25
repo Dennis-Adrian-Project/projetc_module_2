@@ -83,7 +83,7 @@ const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
 const events = require('./routes/event');
-app.use('/', events);
+app.use('/events', events);
 
 // const comment = require('./routes/comment');
 // app.use('/', comment);

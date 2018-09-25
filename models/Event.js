@@ -7,7 +7,7 @@ const eventSchema = new Schema({
   longDesc: String,
   imgPath: String,
   imgName: String,
-  /*location: { type: { type: String }, coordinates: [Number]}*/
+  location: { type: { type: String }, coordinates: [Number]}
 });
 
 eventSchema.index({ location: '2dsphere' });

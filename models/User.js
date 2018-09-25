@@ -6,6 +6,8 @@ const userSchema = new Schema({
   username: String,
   email: { type: mongoose.SchemaTypes.Email },
   password: String,
+  imgPath: String,
+  imgName: String,
   role: {
     type: String,
     enum : ['GUEST', 'MEMBER', 'ADMIN'],

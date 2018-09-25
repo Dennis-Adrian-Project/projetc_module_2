@@ -1,1 +1,13 @@
-Todas las historias
+<h2>EVENTOS HISTÓRICOS</h2>
+<ul>
+{{#each events}}
+  <li>{{this.title}}</li>
+{{/each}}
+</ul>
+
+<div id="map"></div>
+<script>
+  window.events = {{{ eventsStr }}}
+</script>
+
+<script src="/javascripts/listMap.js"></script>

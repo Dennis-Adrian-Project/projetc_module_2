@@ -80,8 +80,8 @@ router.get('/', checkRoles('GUEST'), (req, res) => {
   res.render('index', {user: req.user});
 });
 
-router.get('/create', checkRoles('ADMIN'), (req, res) => {
-  res.render('create', {user: req.user});
+router.get('/create-event', checkRoles('ADMIN'), (req, res) => {
+  res.render('create-event', {user: req.user});
 });
 
 router.get('/histories', checkRoles('MEMBER') , (req, res) => {

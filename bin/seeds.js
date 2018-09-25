@@ -62,7 +62,7 @@ Event.collection.drop()
 
  
 
-Promise.all([Event.create(events), User.create(users),]).then(values => { 
+Promise.all([Event.create-event(events), User.create-event(users),]).then(values => { 
     // Close properly the connection to Mongoose
     mongoose.disconnect()
   })
