@@ -82,14 +82,14 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
+// const users = require('./routes/user');
+// app.use('/user', users);
+
 const events = require('./routes/event');
 app.use('/events', events);
 
-const users = require('./routes/user');
-app.use('/user', users);
-
-// const comment = require('./routes/comment');
-// app.use('/', comment);
+const comment = require('./routes/comment');
+app.use('/', comment);
 
 
       
