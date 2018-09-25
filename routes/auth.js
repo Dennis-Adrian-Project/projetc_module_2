@@ -28,7 +28,8 @@ router.post("/signup", uploadCloud.single('photo'), (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
   const email = req.body.email;
-  
+  const imgPath = req.file.url;
+  const imgName = req.file.originalname;
 
   if (username === "" || password === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
@@ -48,9 +49,10 @@ router.post("/signup", uploadCloud.single('photo'), (req, res, next) => {
       username,
       password: hashPass,
       email,
+      imgPath,
+      imgName,
       role:"MEMBER"
     });
-
     newUser.save()
     .then(() => {
       res.redirect("/");
@@ -84,8 +86,8 @@ router.get('/create-event', checkRoles('ADMIN'), (req, res) => {
   res.render('create-event', {user: req.user});
 });
 
-router.get('/histories', checkRoles('MEMBER') , (req, res) => {
-  res.render('histories', {user: req.user});
+router.get('/list-event', checkRoles('MEMBER') , (req, res) => {
+  res.render('list-event', {user: req.user});
 });
 
 module.exports = router;

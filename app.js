@@ -85,6 +85,9 @@ app.use('/auth', authRoutes);
 const events = require('./routes/event');
 app.use('/events', events);
 
+const users = require('./routes/user');
+app.use('/user', users);
+
 // const comment = require('./routes/comment');
 // app.use('/', comment);
 

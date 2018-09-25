@@ -23,7 +23,14 @@ router.post('/event', uploadCloud.single('photo'), (req, res, next) => {
     type: 'Point',
     coordinates: [Number(req.body.latitude), Number(req.body.longitude)]
 };
-  const newEvent = new Event({title, shortDesc, longDesc, imgPath, imgName, location})
+  const newEvent = new Event({
+    title, 
+    shortDesc, 
+    longDesc, 
+    imgPath, 
+    imgName, 
+    location
+  })
   newEvent.save()
   .then(event => {
     res.redirect('/')
