@@ -83,10 +83,10 @@ const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
 const events = require('./routes/event');
-app.use('/auth', events);
+app.use('/', events);
 
-const comment = require('./routes/comment');
-app.use('/auth', comment);
+// const comment = require('./routes/comment');
+// app.use('/', comment);
 
 
       
