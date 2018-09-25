@@ -82,6 +82,12 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
+const events = require('./routes/event');
+app.use('/auth', events);
+
+const comment = require('./routes/comment');
+app.use('/auth', comment);
+
 
       
 
