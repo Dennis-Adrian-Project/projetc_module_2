@@ -75,6 +75,10 @@ app.use(session({
 app.use(flash());
 require('./passport')(app);
     
+app.use((req,res,next) => {
+  res.locals.user = req.user;
+  next();
+ })
 
 const index = require('./routes/index');
 app.use('/', index);
@@ -82,14 +86,11 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
-// const users = require('./routes/user');
-// app.use('/user', users);
-
 const events = require('./routes/event');
 app.use('/events', events);
 
 const comment = require('./routes/comment');
-app.use('/', comment);
+app.use('/comments', comment);
 
 
       
