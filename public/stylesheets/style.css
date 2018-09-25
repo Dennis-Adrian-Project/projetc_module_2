@@ -1,13 +1,14 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  max-width: 100vw; }
 
 a {
   color: #00B7FF; }
 
 #map {
   height: 500px;
-  width: 100%;
+  width: 50%;
   background-color: grey; }
 
 #mapCreate {

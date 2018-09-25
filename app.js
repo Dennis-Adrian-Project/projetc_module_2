@@ -62,7 +62,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
   
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'MemoryPoints';
 
 
 // Enable authentication using session + passport
@@ -81,6 +81,15 @@ app.use('/', index);
 
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
+
+// const users = require('./routes/user');
+// app.use('/user', users);
+
+const events = require('./routes/event');
+app.use('/events', events);
+
+const comment = require('./routes/comment');
+app.use('/', comment);
 
 
       

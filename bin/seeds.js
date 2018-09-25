@@ -6,7 +6,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
-const Place = require("../models/Place");
+const Event = require("../models/Event");
 
 
 const bcryptSalt = 10;
@@ -35,7 +35,7 @@ User.collection.drop();
 
 
 
-let places = [
+let events = [
   {
     title: "Matadero",
     image: "",
@@ -78,10 +78,10 @@ let places = [
   }
 ]
 
-Place.collection.drop()
+Event.collection.drop()
 
 
-Promise.all([Place.create(places), User.create(users),]).then(values => { 
+Promise.all([Event.create(events), User.create(users),]).then(values => { 
     // Close properly the connection to Mongoose
     mongoose.disconnect()
   })

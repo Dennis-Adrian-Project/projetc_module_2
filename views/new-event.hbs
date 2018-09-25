@@ -1,0 +1,26 @@
+<h1>Nuevo post histórico</h1>
+<form action="/events/event" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="title">Título</label>
+        <input type="textarea" name="title" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="shortDesc">Descripción corta</label>
+        <input type="textarea" name="shortDesc" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="longDesc">Descripción Larga</label>
+        <input type="textarea" name="longDesc" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Address</label>
+        <input id="lat-pos" type="textarea" name="latitude" placeholder="Latitude">
+        <input id="lng-pos" type="textarea" name="longitude" holder="Longitude">
+    </div>
+    <div class="form-group">
+        <label for="photo">Picture</label>
+        <input type="file" name="photo" class="form-control-file">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit post</button>
+
+</form>

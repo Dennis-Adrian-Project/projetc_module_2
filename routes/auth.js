@@ -2,6 +2,7 @@ const express = require("express");
 const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
+const uploadCloud = require('../config/cloudinary.js');
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -23,11 +24,12 @@ router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });
 
-router.post("/signup", (req, res, next) => {
+router.post("/signup", uploadCloud.single('photo'), (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
   const email = req.body.email;
-  
+  const imgPath = req.file.url;
+  const imgName = req.file.originalname;
 
   if (username === "" || password === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
@@ -47,9 +49,10 @@ router.post("/signup", (req, res, next) => {
       username,
       password: hashPass,
       email,
+      imgPath,
+      imgName,
       role:"MEMBER"
     });
-
     newUser.save()
     .then(() => {
       res.redirect("/");
@@ -79,12 +82,12 @@ router.get('/', checkRoles('GUEST'), (req, res) => {
   res.render('index', {user: req.user});
 });
 
-router.get('/create', checkRoles('ADMIN'), (req, res) => {
-  res.render('create', {user: req.user});
+router.get('/new-event', checkRoles('ADMIN'), (req, res) => {
+  res.render('new-event', {user: req.user});
 });
 
-router.get('/histories', checkRoles('MEMBER') , (req, res) => {
-  res.render('histories', {user: req.user});
+router.get('/list-event', checkRoles('MEMBER') , (req, res) => {
+  res.render('list-event', {user: req.user});
 });
 
 module.exports = router;

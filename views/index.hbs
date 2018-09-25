@@ -13,29 +13,28 @@
   </div>
   <div id="map"></div>
   <script>
-  window.places = {{{ plcStr }}}
- </script>
+    window.events = {{{ plcStr }}}
+  </script>
 
-  <div class="container">
-    <div class="row">
-      {{#each places}}
-      <div class="col-md-4">
-        <div class="element-card">
-          <div class="element-caption text-center">
-            <h4 class="text-center">{{this.name}}</h4>
-            <h5 class="text-center">{{this.lat}}</h5>
-            <p class="text-center">{{this.shortDesc}}</p>
-            <button>¿Dónde sucedio?</button>
-          </div>
+
+    {{#each events}}
+    <div class="col-md-4">
+      <div class="element-card">
+        <div class="element-caption text-center">
+          <h4 class="text-center">{{this.title}}</h4>
+          <h5 class="text-center">{{this.shortDesc}}</h5>
+          <img src="{{this.imgPath}}" alt="{{this.imgName}}"></p>
+          <h5 class="text-center">{{this.longDesc}}</h5>
         </div>
       </div>
-      {{/each}}
-
     </div>
-  </div>
-  
+    {{/each}}
 
-<script src="/javascripts/main.js"></script>
+  </div>
+  </div>
+
+
+  <script src="/javascripts/main.js"></script>
 </body>
 
 </html>
