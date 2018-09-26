@@ -17,25 +17,29 @@
   </script>
 
 
-            {{#each events}}
-            <div class="col-md-4">
-              <div class="element-card">
-                <div class="element-caption text-center">
-                  <h4 class="text-center">{{this.title}}</h4>
-                  <h5 class="text-center">{{this.shortDesc}}</h5>
-                  <img src="{{this.imgPath}}" alt="{{this.imgName}}"></p>
-                  <h5 class="text-center">{{this.longDesc}}</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-          {{/each}}
+  {{#each events}}
 
+  <a href="/event-profile">
+    <div class="col-md-4">
+      <div class="element-card">
+        <div class="element-caption text-center">
+          <h4 class="text-center">{{this.title}}</h4>
+          <h5 class="text-center">{{this.shortDesc}}</h5>
+          <img src="{{this.imgPath}}" alt="{{this.imgName}}"></p>
+          <h5 class="text-center">{{this.longDesc}}</h5>
         </div>
       </div>
+    </div>
+    </div>
+  </a>
+
+  {{/each}}
+
+  </div>
+  </div>
 
 
-      <script src="/javascripts/main.js"></script>
+  <script src="/javascripts/main.js"></script>
 </body>
 
 </html>

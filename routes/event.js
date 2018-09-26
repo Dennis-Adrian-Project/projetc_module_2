@@ -39,4 +39,8 @@ router.post('/new-event', uploadCloud.single('photo'), (req, res, next) => {
   })
 });
 
+// router.get('/event-profile', req, res, next) => {
+
+// }
+
 module.exports = router;
