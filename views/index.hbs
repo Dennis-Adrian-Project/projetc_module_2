@@ -16,6 +16,12 @@
     window.events = {{{ plcStr }}}
   </script>
 
+  <div>
+    <button onclick="drawRoute()">Todas</button>
+    <button onclick="drawCharRoute()">Personajes</button>
+    <button onclick="drawArtRoute()">Arte</button>
+    <button onclick="drawStoryRoute()">Anécdotas</button>
+  </div>
 
             {{#each events}}
             <div class="col-md-4">
@@ -36,6 +42,7 @@
 
 
       <script src="/javascripts/main.js"></script>
+      <script src="/javascripts/tourism.js"></script>
 </body>
 
 </html>

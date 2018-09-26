@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
   title: String,
+  matter: String,
   shortDesc: String,
   longDesc: String,
   imgPath: String,

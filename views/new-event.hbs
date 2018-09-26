@@ -1,9 +1,21 @@
-<h1>Nuevo post histórico</h1>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Nuevo post histórico</h1>
   <div id="mapCreate"></div>
 <form action="/events/new-event" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="title">Título</label>
         <input type="textarea" name="title" class="form-control">
+    </div>
+        <div class="form-group">
+        <label for="title">Matter</label>
+        <input type="textarea" name="matter" class="form-control">
     </div>
     <div class="form-group">
         <label for="shortDesc">Descripción corta</label>
@@ -22,6 +34,14 @@
         <label for="photo">Picture</label>
         <input type="file" name="photo" class="form-control-file">
     </div>
+    <div id="lat-pos1"></div>
     <button type="submit" class="btn btn-primary">Submit post</button>
 
 </form>
+ <script src="/javascripts/newev.js"></script>
+</body>
+</html>
+
+
+
+
