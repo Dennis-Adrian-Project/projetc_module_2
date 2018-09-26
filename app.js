@@ -60,9 +60,11 @@ hbs.registerHelper('ifUndefined', (value, options) => {
   }
 });
 
-hbs.registerHelper('role', (user, options) => {
-  return user.role == 'ADMIN' ? options.fn(this) : options.inverse(this);
+hbs.registerHelper('role', (user, role, options) => {
+    return user.role == role ? options.fn(this) : options.inverse(this);
 });
+
+
 
 // default value for title local
 app.locals.title = 'MemoryPoints';

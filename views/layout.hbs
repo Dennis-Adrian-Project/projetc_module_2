@@ -36,20 +36,23 @@
         aria-selected="false">Logout</a>
     </li>
 
-{{#if user}}
-    {{#role user}}
-    <li class="nav-item">
-    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="/auth/new-event" role="tab" aria-controls="pills-contact"
-      aria-selected="false">Crear Evento</a>
-  </li>
-    {{/role}}
-{{/if}}
+    {{#if user}}
+        {{#role user "ADMIN"}}
+        <li class="nav-item">
+        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="/auth/new-event" role="tab" aria-controls="pills-contact"
+          aria-selected="false">Crear Evento</a>
+        </li>
+        {{/role}}
+    {{/if}}
 
-
+    {{#if user}}
+        {{#role user "MEMBER"}}
     <li class="nav-item">
       <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="/auth/profile" role="tab" aria-controls="pills-contact"
         aria-selected="false">Página Usuario</a>
     </li>
+        {{/role}}
+    {{/if}}
 
   </ul>
   <div class="tab-content" id="pills-tabContent">
