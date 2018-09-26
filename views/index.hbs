@@ -25,19 +25,20 @@
         <div class="element-caption text-center">
           <h4 class="text-center">{{this.title}}</h4>
           <h5 class="text-center">{{this.shortDesc}}</h5>
-          <img src="{{this.imgPath}}" alt="{{this.imgName}}"></p>
-          <h5 class="text-center">{{this.longDesc}}</h5>
+          <img src="{{this.imgPath}}" alt="{{this.imgName}}">
+          {{#if user}}
+            {{#role user "MEMBER"}}
+              <h5 class="text-center">{{this.longDesc}}</h5>
+            {{/role}}
+          {{/if}}
         </div>
       </div>
     </div>
-    </div>
   </a>
-
+<br><br>
+<p>-----------------------------------------------------------</p>
   {{/each}}
-
-  </div>
-  </div>
-
+<br><br>
 
   <script src="/javascripts/main.js"></script>
 </body>

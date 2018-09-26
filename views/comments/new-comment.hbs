@@ -1,5 +1,6 @@
 <h1>Nuevo comentario</h1>
-<form action="/comments/new-comment" method="post" enctype="multipart/form-data">
+
+<form action="/comments/new-comment/{{evento.id}}" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="title">Título</label>
         <input type="textarea" name="title" class="form-control">
@@ -15,3 +16,4 @@
     <button type="submit" class="btn btn-primary">Submit post</button>
 
 </form>
+

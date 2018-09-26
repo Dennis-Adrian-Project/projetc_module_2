@@ -2,9 +2,20 @@
   <div class="element-card">
     <div class="element-caption text-center">
       <h4 class="text-center">{{event.title}}</h4>
-      <h5 class="text-center">{{event.shortDesc}}</h5>
+      {{!-- <h5 class="text-center">{{event.shortDesc}}</h5> --}}
       <img src="{{event.imgPath}}" alt="{{event.imgName}}">
       <h5 class="text-center">{{event.longDesc}}</h5>
     </div>
   </div>
 </div>
+
+
+<a href="/comments/new-comment/{{event._id}}">Hacer comentario</a> <a href="/">Volver a Inicio</a>
+
+
+{{#each comment}}
+    <h5>{{this.author.username}}</h5>
+    <h5>{{this.title}}</h5>
+    <p>{{this.content}}</p>
+    <img src="{{this.imgPath}}" alt="{{this.imgName}}">
+{{/each}}

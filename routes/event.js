@@ -1,6 +1,8 @@
 const express = require('express');
 const router  = express.Router();
 const Event = require("../models/Event");
+const Comment = require("../models/Comment");
+
 const uploadCloud = require('../config/cloudinary.js');
 
 
@@ -42,7 +44,11 @@ router.post('/new-event', uploadCloud.single('photo'), (req, res, next) => {
   router.get("/event-profile/:id",(req, res, next)=>{
     Event.findById(req.params.id)
     .then(event => {
-      res.render('event-profile', {event})
+      Comment.find({event: req.params.id})
+      .populate("author", "username")
+      .then(comment => {
+        res.render('event-profile', {event, comment})
+      })
     }) 
     .catch(error => {
       console.log(error)

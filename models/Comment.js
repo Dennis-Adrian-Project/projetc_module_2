@@ -4,6 +4,7 @@ const Schema   = mongoose.Schema;
 
 const commentSchema = new Schema({
   author: {type:Schema.Types.ObjectId, ref:"User"},
+  event: {type:Schema.Types.ObjectId, ref:"Event"},
   title: String,
   content: String,
   imgPath: String,
