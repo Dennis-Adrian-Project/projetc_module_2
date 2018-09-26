@@ -15,7 +15,6 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/new-event', uploadCloud.single('photo'), (req, res, next) => {
-  console.log(req.body.latitude, req.body.longitude)
   const { title, shortDesc, longDesc } = req.body;
   const imgPath = req.file.url;
   const imgName = req.file.originalname;

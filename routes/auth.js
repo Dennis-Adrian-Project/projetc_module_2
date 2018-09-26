@@ -60,7 +60,7 @@ router.post("/signup", uploadCloud.single('photo'), (req, res, next) => {
     });
     newUser.save()
     .then(() => {
-      res.redirect("/");
+      res.redirect("/auth/profile");
     })
     .catch(err => {
       res.render("auth/signup", { message: "Something went wrong" });
@@ -70,7 +70,7 @@ router.post("/signup", uploadCloud.single('photo'), (req, res, next) => {
 
 function checkRoles(role) {
   return function(req, res, next) {
-    if (req.isAuthenticated() && req.user.role === role) {
+    if ((req.isAuthenticated() && req.user.role === role) || req.user.rol === "ADMIN") {
       return next();
     } else {
       res.redirect('/auth/login')
