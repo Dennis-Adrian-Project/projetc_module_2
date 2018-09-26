@@ -23,26 +23,33 @@
     <button onclick="drawStoryRoute()">Anécdotas</button>
   </div>
 
-            {{#each events}}
-            <div class="col-md-4">
-              <div class="element-card">
-                <div class="element-caption text-center">
-                  <h4 class="text-center">{{this.title}}</h4>
-                  <h5 class="text-center">{{this.shortDesc}}</h5>
-                  <img src="{{this.imgPath}}" alt="{{this.imgName}}"></p>
-                  <h5 class="text-center">{{this.longDesc}}</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-          {{/each}}
+  {{#each events}}
 
+  <a href="/events/event-profile/{{this._id}}">
+    <div class="col-md-4">
+      <div class="element-card">
+        <div class="element-caption text-center">
+          <h4 class="text-center">{{this.title}}</h4>
+          <h5 class="text-center">{{this.shortDesc}}</h5>
+          <img src="{{this.imgPath}}" alt="{{this.imgName}}">
+          {{#if user}}
+            {{#role user "MEMBER"}}
+              <h5 class="text-center">{{this.longDesc}}</h5>
+            {{/role}}
+          {{/if}}
         </div>
       </div>
 
 
-      <script src="/javascripts/main.js"></script>
+    </div>
+  </a>
+<br><br>
+<p>-----------------------------------------------------------</p>
+  {{/each}}
+<br><br>
+
       <script src="/javascripts/tourism.js"></script>
+  <script src="/javascripts/main.js"></script>
 </body>
 
 </html>

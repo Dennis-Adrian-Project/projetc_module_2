@@ -5,6 +5,7 @@
 
 <h3>Estos son tus comentarios:</h3>
 {{#each comments}}
-    <p>{{this.text}}</p>
-    <img src="{{this.picpath}}" alt="{{this.picname}}">
+    <h3>{{this.title}}</h3>
+    <p>{{this.content}}</p>
+    <img src="{{this.imgPath}}" alt="{{this.imgName}}">
 {{/each}}

@@ -1,21 +1,21 @@
 require('dotenv').config();
 
-const bodyParser   = require('body-parser');
+const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const express      = require('express');
-const favicon      = require('serve-favicon');
-const hbs          = require('hbs');
-const mongoose     = require('mongoose');
-const logger       = require('morgan');
-const path         = require('path');
+const express = require('express');
+const favicon = require('serve-favicon');
+const hbs = require('hbs');
+const mongoose = require('mongoose');
+const logger = require('morgan');
+const path = require('path');
 
-const session    = require("express-session");
+const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
-const flash      = require("connect-flash");
-    
+const flash = require("connect-flash");
+
 
 mongoose
-  .connect('mongodb://localhost/project-module-2', {useNewUrlParser: true})
+  .connect('mongodb://localhost/project-module-2', { useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -38,11 +38,11 @@ app.use(cookieParser());
 // Express View engine setup
 
 app.use(require('node-sass-middleware')({
-  src:  path.join(__dirname, 'public'),
+  src: path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
   sourceMap: true
 }));
-      
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -52,14 +52,19 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 hbs.registerHelper('ifUndefined', (value, options) => {
   if (arguments.length < 2)
-      throw new Error("Handlebars Helper ifUndefined needs 1 parameter");
-  if (typeof value !== undefined ) {
-      return options.inverse(this);
+    throw new Error("Handlebars Helper ifUndefined needs 1 parameter");
+  if (typeof value !== undefined) {
+    return options.inverse(this);
   } else {
-      return options.fn(this);
+    return options.fn(this);
   }
 });
-  
+
+hbs.registerHelper('role', (user, role, options) => {
+    return user.role == role ? options.fn(this) : options.inverse(this);
+});
+
+
 
 // default value for title local
 app.locals.title = 'MemoryPoints';
@@ -70,15 +75,15 @@ app.use(session({
   secret: 'irongenerator',
   resave: true,
   saveUninitialized: true,
-  store: new MongoStore( { mongooseConnection: mongoose.connection })
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
 }))
 app.use(flash());
 require('./passport')(app);
-    
-app.use((req,res,next) => {
+
+app.use((req, res, next) => {
   res.locals.user = req.user;
   next();
- })
+})
 
 const index = require('./routes/index');
 app.use('/', index);
@@ -93,6 +98,6 @@ const comment = require('./routes/comment');
 app.use('/comments', comment);
 
 
-      
+
 
 module.exports = app;

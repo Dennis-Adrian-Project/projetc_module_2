@@ -1,6 +1,8 @@
 const express = require('express');
 const router  = express.Router();
 const Event = require("../models/Event");
+const Comment = require("../models/Comment");
+
 const uploadCloud = require('../config/cloudinary.js');
 
 
@@ -15,7 +17,6 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/new-event', uploadCloud.single('photo'), (req, res, next) => {
-  console.log(req.body.latitude, req.body.longitude)
   const { title, matter, shortDesc, longDesc } = req.body;
   const imgPath = req.file.url;
   const imgName = req.file.originalname;
@@ -40,5 +41,20 @@ router.post('/new-event', uploadCloud.single('photo'), (req, res, next) => {
     console.log(error)
   })
 });
+
+  router.get("/event-profile/:id",(req, res, next)=>{
+    Event.findById(req.params.id)
+    .then(event => {
+      Comment.find({event: req.params.id})
+      .populate("author", "username")
+      .then(comment => {
+        res.render('event-profile', {event, comment})
+      })
+    }) 
+    .catch(error => {
+      console.log(error)
+    })
+  });
+
 
 module.exports = router;
