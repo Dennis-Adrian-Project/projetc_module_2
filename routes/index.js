@@ -3,13 +3,7 @@ const router  = express.Router();
 const Event = require("../models/Event");
 
 
-/* GET home page */
-
-
-/* GET home page */
-
 router.get('/', (req, res, next) => {
-  console.log("entra")
   Event.find()
     .then(events => {
           res.render('index', {

@@ -1,10 +1,10 @@
 <h1>Tu página de usuario: {{user.username}}</h1>
 <img src="{{user.imgPath}}" alt="{{user.imgName}}">
-<a href="/new-comment" class="btn btn-dark">Crear nuevo comentario</a>
+<a href="/comments/new-comment" class="btn btn-dark">Crear nuevo comentario</a>
 <a href="/logout" class="btn btn-dark">Log out</a>
 
 <h3>Estos son tus comentarios:</h3>
 {{#each comments}}
-    <p>{{this.content}}</p>
+    <p>{{this.text}}</p>
     <img src="{{this.picpath}}" alt="{{this.picname}}">
 {{/each}}

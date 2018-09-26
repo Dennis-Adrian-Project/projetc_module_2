@@ -1,0 +1,17 @@
+<h1>Nuevo comentario</h1>
+<form action="/comments/new-comment" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="title">Título</label>
+        <input type="textarea" name="title" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="content">Comentario</label>
+        <input type="textarea" name="shortDesc" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="photo">Picture</label>
+        <input type="file" name="photo" class="form-control-file">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit post</button>
+
+</form>
