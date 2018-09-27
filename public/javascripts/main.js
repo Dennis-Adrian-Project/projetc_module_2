@@ -127,8 +127,8 @@ function drawRoute() {
     steps.push(
       {
         location: {
-          lat: lug.location.coordinates[0],
-          lng: lug.location.coordinates[1]
+          lat: Number(lug.location.coordinates[0]),
+          lng: Number(lug.location.coordinates[1])
         }, stopover: true
       }
     )
