@@ -1,6 +1,6 @@
-
 let directionsService = new google.maps.DirectionsService;
 let directionsDisplay = new google.maps.DirectionsRenderer;
+let map = new google.maps.Map(document.getElementById('map'));
 
 events.forEach(plc => {
   new google.maps.Marker({
@@ -48,7 +48,6 @@ upload()
   directionsDisplay.setMap(map)
 }
 
-
 function drawArtRoute() {
   steps = [];
   events.forEach(lug => {
@@ -66,7 +65,6 @@ upload()
   directionsDisplay.setMap(map)
 }
 
-
 function drawStoryRoute() {
   steps = [];
   events.forEach(lug => {
@@ -83,6 +81,9 @@ function drawStoryRoute() {
 upload()
   directionsDisplay.setMap(map)
 }
+
+
+
 
 function upload(){
   const directionRequest = {
@@ -129,8 +130,5 @@ directionsService.route(
     }
   }
 );
-
-
-// directionsDisplay.setMap(map)
 
 

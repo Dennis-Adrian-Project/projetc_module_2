@@ -1,51 +1,19 @@
-let puertaDelSol = { lat: 40.4167278, lng: -3.7033387 };
-// let map;
-
-
-// function startMap() {
-//   map = new google.maps.Map(
-//     document.getElementById('map'),
-//     {
-//       zoom: 10,
-//       center: puertaDelSol
-//     }
-//   );
-
-//   const geolocalize = () => {
-//     return new Promise((resolve, reject) => {
-//       if (!navigator.geolocation) reject('No geolocation available');
-//       navigator.geolocation.getCurrentPosition((pos) => {
-//         const center = {
-//           lat: pos.coords.latitude,
-//           lng: pos.coords.longitude
-//         };
-//         resolve(center);
-//       }, reject)
-//     });
-//   }
-
-// }
-// startMap();
-
 var overlay;
 USGSOverlay.prototype = new google.maps.OverlayView();
-
+let map;
 
 
 function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 15,
-    center: puertaDelSol,
+    map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 200,
+    center: {lat: 62.323907, lng: -150.109291},
     mapTypeId: 'satellite'
   });
-  
+
   var bounds = new google.maps.LatLngBounds(
-    new google.maps.LatLng(40.406503, -3.732647),
-    new google.maps.LatLng(40.431508, -3.677977));
-    // new google.maps.LatLng(40.281819, -3.287132),
-    // new google.maps.LatLng(40.400471, -3.005608));
-      // new google.maps.LatLng(40.23505027671814, -3.4236405219762673),
-      // new google.maps.LatLng(40.55131534352123, -4.0576477820312675));
+      new google.maps.LatLng(62.281819, -150.287132),
+      new google.maps.LatLng(62.400471, -150.005608));
+
   var srcImage = 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Pedro_Teixeira_Albernaz_%281656%29_Madrid.png';
   overlay = new USGSOverlay(bounds, srcImage, map);
 }
