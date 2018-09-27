@@ -215,24 +215,3 @@ function upload(){
   );
   
 }
-const directionRequest = {
-  origin: puertaDelSol,
-  destination: steps[steps.length-1].location,
-  waypoints: steps,
-  optimizeWaypoints: true,
-  travelMode: 'DRIVING'
-};
-
-directionsService.route(
-  directionRequest,
-  function (response, status) {
-    if (status === 'OK') {
-      // everything is ok
-      directionsDisplay.setDirections(response);
-
-    } else {
-      // something went wrong
-      window.alert('Directions request failed due to ' + status);
-    }
-  }
-);
