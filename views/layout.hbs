@@ -15,7 +15,6 @@
 
 <body>
 
-
   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" id="/" data-toggle="pill" href="/" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
@@ -37,21 +36,21 @@
     </li>
 
     {{#if user}}
-        {{#role user "ADMIN"}}
-        <li class="nav-item">
-        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="/auth/new-event" role="tab" aria-controls="pills-contact"
-          aria-selected="false">Crear Evento</a>
-        </li>
-        {{/role}}
+    {{#role user "ADMIN"}}
+    <li class="nav-item">
+      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="/auth/new-event" role="tab" aria-controls="pills-contact"
+        aria-selected="false">Crear Evento</a>
+    </li>
+    {{/role}}
     {{/if}}
 
     {{#if user}}
-        {{#role user "MEMBER"}}
+    {{#role user "MEMBER"}}
     <li class="nav-item">
       <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="/auth/profile" role="tab" aria-controls="pills-contact"
         aria-selected="false">Página Usuario</a>
     </li>
-        {{/role}}
+    {{/role}}
     {{/if}}
 
   </ul>

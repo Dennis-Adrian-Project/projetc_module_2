@@ -27,10 +27,10 @@ function startMap() {
 }
 startMap();
 
-//------------------------------------//
+// ------------------------------------//
 
 // var overlay;
-// USGSOverlay.prototype = new google.maps.OverlayView();
+// aMapverlay.prototype = new google.maps.OverlayView();
 
 
 
@@ -46,11 +46,11 @@ startMap();
 //     new google.maps.LatLng(40.431508, -3.677977));
 
 //   var srcImage = 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Pedro_Teixeira_Albernaz_%281656%29_Madrid.png';
-//   overlay = new USGSOverlay(bounds, srcImage, map);
+//   overlay = new aMapverlay(bounds, srcImage, map);
 // }
 
 // /** @constructor */
-// function USGSOverlay(bounds, image, map) {
+// function aMapverlay(bounds, image, map) {
 
 //   this.bounds_ = bounds;
 //   this.image_ = image;
@@ -61,7 +61,7 @@ startMap();
 // }
 
 
-// USGSOverlay.prototype.onAdd = function() {
+// aMapverlay.prototype.onAdd = function() {
 
 //   var div = document.createElement('div');
 //   div.style.borderStyle = 'none';
@@ -81,7 +81,7 @@ startMap();
 //   panes.overlayLayer.appendChild(div);
 // };
 
-// USGSOverlay.prototype.draw = function() {
+// aMapverlay.prototype.draw = function() {
 
 //   var overlayProjection = this.getProjection();
 
@@ -95,14 +95,14 @@ startMap();
 //   div.style.height = (sw.y - ne.y) + 'px';
 // };
 
-// USGSOverlay.prototype.onRemove = function() {
+// aMapverlay.prototype.onRemove = function() {
 //   this.div_.parentNode.removeChild(this.div_);
 //   this.div_ = null;
 // };
 
 // google.maps.event.addDomListener(window, 'load', initMap);
 
-//------------------------------------//
+// ------------------------------------//
 
 
 let directionsService = new google.maps.DirectionsService;
@@ -216,8 +216,8 @@ function upload(){
   
 }
 const directionRequest = {
-  origin: { lat: 41.3977381, lng: 2.190471916 },
-  destination: { lat: 40.3977381, lng: -3 },
+  origin: puertaDelSol,
+  destination: steps[steps.length-1].location,
   waypoints: steps,
   optimizeWaypoints: true,
   travelMode: 'DRIVING'
