@@ -194,7 +194,7 @@ function upload(){
 
   const directionRequest = {
     origin: puertaDelSol,
-    destination: steps[steps.length - 1].location,
+    destination: {lat: 40.4137818, lng:-3.6943211},
     waypoints: steps,
     optimizeWaypoints: true,
     travelMode: 'DRIVING'
