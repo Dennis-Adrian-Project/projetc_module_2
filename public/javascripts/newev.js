@@ -17,3 +17,5 @@ function startNewMap() {
     document.getElementById("lng-pos").value =  e.latLng.lng();
 
   })
+
+  

@@ -33,9 +33,9 @@
           <h5 class="text-center">{{this.shortDesc}}</h5>
           <img src="{{this.imgPath}}" alt="{{this.imgName}}">
           {{#if user}}
-            {{#role user "MEMBER"}}
-              <h5 class="text-center">{{this.longDesc}}</h5>
-            {{/role}}
+          {{#role user "MEMBER"}}
+          <h5 class="text-center">{{this.longDesc}}</h5>
+          {{/role}}
           {{/if}}
         </div>
       </div>
@@ -43,12 +43,12 @@
 
     </div>
   </a>
-<br><br>
-<p>-----------------------------------------------------------</p>
+  <br><br>
+  <p>-----------------------------------------------------------</p>
   {{/each}}
-<br><br>
+  <br><br>
 
-      <script src="/javascripts/tourism.js"></script>
+  <script src="/javascripts/tourism.js"></script>
   <script src="/javascripts/main.js"></script>
 </body>
 
