@@ -84,16 +84,6 @@ upload()
   directionsDisplay.setMap(map)
 }
 
-
-
-
-
-
-
-
-
-
-console.log(steps);
 function upload(){
   const directionRequest = {
     origin: { lat: 41.3977381, lng: 2.190471916 },

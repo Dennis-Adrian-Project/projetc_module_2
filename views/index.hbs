@@ -15,7 +15,7 @@
   <script>
     window.events = {{{ plcStr }}}
   </script>
-
+<br>
   <div>
     <button onclick="drawRoute()">Todas</button>
     <button onclick="drawCharRoute()">Personajes</button>
@@ -23,24 +23,22 @@
     <button onclick="drawStoryRoute()">Anécdotas</button>
   </div>
 
-  {{#each events}}
+<br><br>
 
-  <a href="/events/event-profile/{{this._id}}">
+  {{#each events}}
     <div class="col-md-4">
       <div class="element-card">
         <div class="element-caption text-center">
           <h4 class="text-center">{{this.title}}</h4>
-          <h5 class="text-center">{{this.shortDesc}}</h5>
-          <img src="{{this.imgPath}}" alt="{{this.imgName}}">
+          <img src="{{this.imgPath}}" alt="{{this.imgName}}" width="400px">
+          <p class="text-center">{{this.shortDesc}}</p>
           {{#if user}}
-            {{#role user "MEMBER"}}
-              <h5 class="text-center">{{this.longDesc}}</h5>
-            {{/role}}
-          {{/if}}
+          {{#role user "MEMBER"}}
+           <a href="/events/event-profile/{{this._id}}">Leer más</a>
+           {{/role}}
+           {{/if}}
         </div>
       </div>
-
-
     </div>
   </a>
 <br><br>
