@@ -32,12 +32,10 @@
           <h4 class="text-center">{{this.title}}</h4>
           <img src="{{this.imgPath}}" alt="{{this.imgName}}" width="400px">
           <p class="text-center">{{this.shortDesc}}</p>
-          {{#if user}}
-          {{#role user "MEMBER"}}
-           <a href="/events/event-profile/{{this._id}}">Leer más</a>
-           {{/role}}
+          {{#if ../user}}
+           <a href="/events/event-profile/{{./this._id}}">Leer más</a>
            {{/if}}
-          <h5 class="text-center">{{this.longDesc}}</h5>
+          {{!-- <h5 class="text-center">{{this.longDesc}}</h5> --}}
         </div>
       </div>
     </div>

@@ -26,7 +26,7 @@ router.get("/profile",(req,res)=>{
     author: req.user.id,
   })
   .then(comments => {
-    res.render('profile', {comments})
+    res.render('user-profile', {comments})
   }) 
 })
 
