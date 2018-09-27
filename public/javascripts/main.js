@@ -1,15 +1,10 @@
 let puertaDelSol = { lat: 40.4167278, lng: -3.7033387 };
 let map;
+let cent;
 
 
 function startMap() {
-  map = new google.maps.Map(
-    document.getElementById('map'),
-    {
-      zoom: 10,
-      center: puertaDelSol
-    }
-  );
+  
 
   const geolocalize = () => {
     return new Promise((resolve, reject) => {
@@ -19,11 +14,30 @@ function startMap() {
           lat: pos.coords.latitude,
           lng: pos.coords.longitude
         };
+        cent = center;
         resolve(center);
       }, reject)
     });
   }
-
+  geolocalize().then((center) => {
+    map = new google.maps.Map(
+      document.getElementById('map'),
+      {
+        zoom: 14,
+        center: center
+      }
+    );
+    events.forEach(plc => {
+      new google.maps.Marker({
+        position: {
+          lat: plc.location.coordinates[0],
+          lng: plc.location.coordinates[1]
+        },
+        map: map,
+        title: plc.title
+      });
+    });
+  })
 }
 startMap();
 
@@ -109,16 +123,7 @@ let directionsService = new google.maps.DirectionsService;
 let directionsDisplay = new google.maps.DirectionsRenderer;
 
 
-events.forEach(plc => {
-  new google.maps.Marker({
-    position: {
-      lat: plc.location.coordinates[0],
-      lng: plc.location.coordinates[1]
-    },
-    map: map,
-    title: plc.title
-  });
-});
+
 
 let steps = [];
 
@@ -193,8 +198,8 @@ upload()
 function upload(){
 
   const directionRequest = {
-    origin: puertaDelSol,
-    destination: {lat: 40.4137818, lng:-3.6943211},
+    origin: cent,
+    destination: steps[steps.length - 1].location,
     waypoints: steps,
     optimizeWaypoints: true,
     travelMode: 'DRIVING'
@@ -203,6 +208,7 @@ function upload(){
   directionsService.route(
     directionRequest,
     function (response, status) {
+      console.log(response)
       if (status === 'OK') {
         // everything is ok
         directionsDisplay.setDirections(response);
