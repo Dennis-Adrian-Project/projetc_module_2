@@ -21,7 +21,7 @@ a {
 .titulo {
   position: relative;
   padding: 30px;
-  top: 40px;
+  top: -10px;
   left: 40%;
   height: 0px; }
 
@@ -29,7 +29,8 @@ a {
   padding: 100px 120px;
   height: 300px;
   display: flex;
-  justify-content: space-evenly; }
+  justify-content: space-evenly;
+  margin: -50px; }
 
 .col-md-4 {
   display: flex;
@@ -80,6 +81,19 @@ a {
   width: 100%; }
 
 .event-class {
-  width: 100%; }
+  width: 95%; }
+
+#eventMap {
+  width: 40%; }
+
+.log {
+  position: relative;
+  left: 40%; }
+
+.logbtn {
+  margin: 20px;
+  padding: 10px 30px;
+  position: relative;
+  left: 5%; }
 
 /*# sourceMappingURL=style.css.map */

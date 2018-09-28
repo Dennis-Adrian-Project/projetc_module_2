@@ -3,6 +3,12 @@
 <br>
 <a href="/logout" class="btn btn-dark">Log out</a>
 
+{{#if user}}
+{{#role user "ADMIN"}}
+    <a href="/events/list-event/{{./this._id}}">Eventos creados</a>
+{{/role}}
+{{/if}}
+
 <h3>Estos son tus comentarios:</h3>
 {{#each comments}}
     <h5>Tu comentario sobre el artículo: {{this.event.title}}</h5>
