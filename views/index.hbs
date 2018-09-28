@@ -16,7 +16,9 @@
 
     <div class="event-class">
       <h4 class="text-center">{{this.title}}</h4>
-      <img src="{{this.imgPath}}" alt="{{this.imgName}}" class="imagen">
+      <div class="imagen">
+      <img src="{{this.imgPath}}" alt="{{this.imgName}}">
+      </div>
       <p class="text-center">{{this.shortDesc}}</p>
       {{#if ../user}}
       <a href="/events/event-profile/{{./this._id}}">Leer más</a>
