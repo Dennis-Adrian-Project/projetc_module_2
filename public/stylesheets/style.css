@@ -43,6 +43,7 @@ a {
   justify-content: space-between; }
 
 .image {
-  width: 60%; }
+  width: 50%;
+  margin-left: 52px; }
 
 /*# sourceMappingURL=style.css.map */

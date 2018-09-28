@@ -15,9 +15,9 @@
 
 <body>
 
-  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <ul class="nav">
     <li class="nav-item">
-      <a class="nav-link active" id="/" data-toggle="pill" href="/" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+      <a class="nav-link active" id="/" href="/" role="tab">Home</a>
     </li>
 
     <li class="nav-item">
@@ -52,6 +52,10 @@
     </li>
     {{/role}}
     {{/if}}
+
+    <div>
+      {{user.username}} <img src="{{user.imgPath}}" alt="{{user.imgName}}" width="90px">
+    </div>
 
   </ul>
   <div class="tab-content" id="pills-tabContent">
