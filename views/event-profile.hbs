@@ -4,14 +4,16 @@
 <br><br>
 
 <div class="event-profile">
-  <div class="map-event">
+  {{!-- <div class="map-event">
     <div id="map" style="overflow: auto;width: 100%">
       <script>
         window.events = {{{ plcStr }}}
       </script>
     </div>
-  </div>
+  </div> --}}
+  <div id="eventMap">
 
+  </div>
   <div class="event-title-img">
     <img class="image" src="{{event.imgPath}}" alt="{{event.imgName}}">
   </div>
@@ -30,5 +32,7 @@
 <img src="{{this.imgPath}}" alt="{{this.imgName}}">
 <p>------------------------------------------------</p>
 {{/each}}
-
-<script src="/javascripts/main.js"></script>
+<script>
+  window.log = {{{event.location}}}
+</script>
+<script src="/javascripts/event-point.js"></script>
