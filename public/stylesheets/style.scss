@@ -1,24 +1,57 @@
+// 
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   max-width: 100vw;
-}
+  background-color: aqua; }
 
 a {
-  color: #00B7FF;
+  color: rgba(0, 183, 255, 0.897);
 }
 
 #map {
   height: 500px;
-  width: 100%;
-  background-color: grey;
-}
+  width: 70%;
+  display: inline-block;
+  background-color: grey; }
 
 #mapCreate {
   height: 300px;
   width: 100%;
-  background-color: grey;
-}
+  background-color: grey; }
+
+.titulo {
+  position: relative;
+  padding: 30px;
+  top: 40px;
+  left: 40%;
+  height: 0px; }
+
+.categories {
+  padding: 100px 120px;
+  height: 300px;
+  display: flex;
+  justify-content: space-evenly; }
+
+
+.col-md-4 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+
+.btn {
+  width: 120px;
+  margin: 20px; }
+
+.scrollbar {
+  width: 29%;
+  height: 500px;
+  display: inline-block;
+  overflow-y: scroll; }
+
+/*# sourceMappingURL=style.css.map */
+
+
 
 .event-profile {
   display: flex;
@@ -62,4 +95,3 @@ a {
   width: 50%;
   margin-left: 52px;
 }
-

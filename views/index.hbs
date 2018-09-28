@@ -6,48 +6,87 @@
 </head>
 
 <body>
-  <div>
-    <h1>{{title}}</h1>
-    <p>Welcome to {{title}}</p>
-  </div>
 
-  <div id="map">
-    <script>
-      window.events = {{{ plcStr }}}
-    </script>
-  </div>
+  <div id="map"></div>
+  <script>
+    window.events = {{{ plcStr }}}
+  </script>
+    <div class="scrollbar">
+  {{!-- <div class="container">
+    <div class="row"> --}}
+      {{#each events}}
 
-  <br><br>
+            <div class="element-caption text-center">
+              <h4 class="text-center">{{this.title}}</h4>
+              <img src="{{this.imgPath}}" alt="{{this.imgName}}" width="400px">
+              <p class="text-center">{{this.shortDesc}}</p>
+              {{#if user}}
+              {{#role user "MEMBER"}}
+               <a href="/events/event-profile/{{this._id}}">Leer más</a>
+               {{/role}}
+               {{/if}}
+              {{!-- <h5 class="text-center">{{this.shortDesc}}</h5> --}}
+            </div>
 
-  <div>
-    <button onclick="drawRoute()">Todas</button>
-    <button onclick="drawCharRoute()">Personajes</button>
-    <button onclick="drawArtRoute()">Arte</button>
-    <button onclick="drawStoryRoute()">Anécdotas</button>
-  </div>
-
-  <br><br>
-
-  {{#each events}}
-  <div class="col-md-4">
-    <div class="element-card">
-      <div class="element-caption text-center">
-        <h4 class="text-center">{{this.title}}</h4>
-        <img src="{{this.imgPath}}" alt="{{this.imgName}}" width="400px">
-        <p class="text-center">{{this.shortDesc}}</p>
-        {{#if ../user}}
-        <a href="/events/event-profile/{{./this._id}}">Leer más</a>
-        {{else}}
-        <a href="/auth/login">Regístrate para leer más</a>
-        {{/if}}
-      </div>
+      </a>
+ 
+      {{/each}}
+    {{!-- </div>
+  </div> --}}
     </div>
+  <div class="titulo">
+    <h1>{{title}}</h1>
+    <p>Bienvenidos a {{title}}</p>
   </div>
-  </a>
+
+<div class="categories">
+
+<button onclick="drawRoute()" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+  Todas
+</button>
+<button onclick="drawCharRoute()" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+ Personajes
+</button>
+<button onclick="drawArtRoute()" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
+ Arte
+</button>
+<button onclick="drawStoryRoute()" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+  Anécdotas
+</button>
+
+</div>
+
+
+<br><br>
+
+  {{!-- <div class="container">
+    <div class="row">
+      {{#each events}}
+        <div class="col-md-4">
+          <div class="element-card">
+            <div class="element-caption text-center">
+              <h4 class="text-center">{{this.title}}</h4>
+              <img src="{{this.imgPath}}" alt="{{this.imgName}}" width="400px">
+              <p class="text-center">{{this.shortDesc}}</p>
+              {{#if user}}
+              {{#role user "MEMBER"}}
+               <a href="/events/event-profile/{{this._id}}">Leer más</a>
+               {{/role}}
+               {{/if}}
+              <h5 class="text-center">{{this.shortDesc}}</h5>
+            </div>
+          </div>
+        </div>
+      </a>
+ 
+      {{/each}}
+    </div>
+  </div> --}}
   <br><br>
-  <p>-----------------------------------------------------------</p>
-  {{/each}}
-  <br><br>
+
+
+
+
 
   <script src="/javascripts/tourism.js"></script>
   <script src="/javascripts/main.js"></script>

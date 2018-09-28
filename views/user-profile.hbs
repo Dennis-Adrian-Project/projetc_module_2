@@ -1,0 +1,12 @@
+<h1>Tu página de usuario: {{user.username}}</h1>
+<img src="{{user.imgPath}}" alt="{{user.imgName}}">
+<br>
+<a href="/logout" class="btn btn-dark">Log out</a>
+
+<h3>Estos son tus comentarios:</h3>
+{{#each comments}}
+    <h5>Tu comentario sobre el artículo: {{this.event.title}}</h5>
+    <p>{{this.content}}</p>
+    <img src="{{this.imgPath}}" alt="{{this.imgName}}">
+    <a href="/comments/delete/{{this._id}}">Delete</a>
+{{/each}}
