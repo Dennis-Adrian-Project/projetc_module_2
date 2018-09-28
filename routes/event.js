@@ -35,7 +35,7 @@ router.post('/new-event', uploadCloud.single('photo'), (req, res, next) => {
   })
   newEvent.save()
   .then(event => {
-    res.redirect('/auth/list-event')
+    res.redirect('/')
   })
   .catch(error => {
     console.log(error)

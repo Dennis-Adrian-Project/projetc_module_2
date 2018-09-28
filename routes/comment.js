@@ -37,8 +37,12 @@ router.post('/new-comment/:id', uploadCloud.single('photo'), (req,res) => {
   });
   newComment.save()
   .then(() => res.redirect(`/events/event-profile/${req.params.id}`));
-
 });
 
+router.get('/delete/:id', (req, res, next) => {
+  Comment.findByIdAndRemove(req.params.id).then(() => {
+    res.redirect(`/auth/profile`);
+  }).catch(e =>  next(e))
+});
 
 module.exports = router;

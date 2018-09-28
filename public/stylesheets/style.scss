@@ -6,7 +6,8 @@ body {
   background-color: aqua; }
 
 a {
-  color: rgba(0, 183, 255, 0.897); }
+  color: rgba(0, 183, 255, 0.897);
+}
 
 #map {
   height: 500px;
@@ -49,3 +50,47 @@ a {
   overflow-y: scroll; }
 
 /*# sourceMappingURL=style.css.map */
+
+
+
+.event-profile {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.event-title-img {
+  display: contents;
+  padding: 0;
+  margin-left: 50px;
+  margin-right: 0;
+  margin-bottom: 20px;
+}
+
+// .map-event {
+//   width: 40%;
+//   display: flex;
+//   margin-top: 50px;
+//   margin-left: auto;
+// }
+
+.map-event {
+  width: 40%;
+  display: flex;
+  margin-top: inherit;
+  margin-left: inherit;
+}
+
+.text-event {
+  text-align: justify;
+  margin-top: 50px;
+  margin-bottom: 1rem;
+}
+
+.com-inx {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image {
+  width: 60%;
+}

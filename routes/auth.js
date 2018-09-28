@@ -25,8 +25,9 @@ router.get("/profile",(req,res)=>{
   Comment.find({
     author: req.user.id,
   })
+  .populate('event')
   .then(comments => {
-    res.render('profile', {comments})
+    res.render('user-profile', {comments})
   }) 
 })
 

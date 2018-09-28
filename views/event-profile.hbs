@@ -1,21 +1,34 @@
-<div class="col-md-4">
-  <div class="element-card">
-    <div class="element-caption text-center">
-      <h4 class="text-center">{{event.title}}</h4>
-      {{!-- <h5 class="text-center">{{event.shortDesc}}</h5> --}}
-      <img src="{{event.imgPath}}" alt="{{event.imgName}}">
-      <h5 class="text-center">{{event.longDesc}}</h5>
+
+<h2 class="text-center">{{event.title}}</h2>
+
+<br><br>
+
+<div class="event-profile">
+  <div class="map-event">
+    <div id="map">
+      <script>
+        window.events = {{{ plcStr }}}
+      </script>
     </div>
+  </div>
+
+  <div class="event-title-img">
+    <img class="image" src="{{event.imgPath}}" alt="{{event.imgName}}">
+  </div>
+  <div>
+    <p class="text-event">{{event.longDesc}}</p>
   </div>
 </div>
 
-
-<a href="/comments/new-comment/{{event._id}}">Hacer comentario</a> <a href="/">Volver a Inicio</a>
-
-
+<div class="com-inx">
+<a href="/comments/new-comment/{{event._id}}">Hacer comentario</a>    <a href="/">Volver a Inicio</a>
+</div>
+<br><br>
 {{#each comment}}
-    <h5>{{this.author.username}}</h5>
-    <h5>{{this.title}}</h5>
-    <p>{{this.content}}</p>
-    <img src="{{this.imgPath}}" alt="{{this.imgName}}">
+<h5>{{this.author.username}} ha comentado:</h5>
+<p>{{this.content}}</p>
+<img src="{{this.imgPath}}" alt="{{this.imgName}}">
+<p>------------------------------------------------</p>
 {{/each}}
+
+<script src="/javascripts/main.js"></script>
