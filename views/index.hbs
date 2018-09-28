@@ -12,59 +12,56 @@
     window.events = {{{ plcStr }}}
   </script>
   <div class="scrollbar">
-        {{#each events}}
+    {{#each events}}
 
-        <div class="col-md-4">
-          <div class="element-card">
-            <div class="element-caption text-center">
-              <h4 class="text-center">{{this.title}}</h4>
-              <img src="{{this.imgPath}}" alt="{{this.imgName}}" width="400px">
-              <p class="text-center">{{this.shortDesc}}</p>
-              {{#if ../user}}
-              <a href="/events/event-profile/{{./this._id}}">Leer más</a>
-              {{else}}
-              <a href="/auth/login">Regístrate para leer más</a>
-              {{/if}}
-            </div>
-          </div>
-        </div>
+    <div class="event-class">
+      <h4 class="text-center">{{this.title}}</h4>
+      <img src="{{this.imgPath}}" alt="{{this.imgName}}" width="400px">
+      <p class="text-center">{{this.shortDesc}}</p>
+      {{#if ../user}}
+      <a href="/events/event-profile/{{./this._id}}">Leer más</a>
+      {{else}}
+      <a href="/auth/login">Regístrate para leer más</a>
+      {{/if}}
+    </div>
 
-        {{/each}}
-      </div>
-      <div class="titulo">
-        <h1>{{title}}</h1>
-        <p>Bienvenidos a {{title}}</p>
-      </div>
+    {{/each}}
+  </div>
+  
+  <div class="titulo">
+    <h1>{{title}}</h1>
+    <p>Bienvenidos a {{title}}</p>
+  </div>
 
-      <div class="categories">
+  <div class="categories">
 
-        <button onclick="drawRoute()" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top"
-          title="Tooltip on top">
-          Todas
-        </button>
-        <button onclick="drawCharRoute()" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right"
-          title="Tooltip on right">
-          Personajes
-        </button>
-        <button onclick="drawArtRoute()" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom"
-          title="Tooltip on bottom">
-          Arte
-        </button>
-        <button onclick="drawStoryRoute()" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left"
-          title="Tooltip on left">
-          Anécdotas
-        </button>
+    <button onclick="drawRoute()" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top"
+      title="Tooltip on top">
+      Todas
+    </button>
+    <button onclick="drawCharRoute()" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right"
+      title="Tooltip on right">
+      Personajes
+    </button>
+    <button onclick="drawArtRoute()" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom"
+      title="Tooltip on bottom">
+      Arte
+    </button>
+    <button onclick="drawStoryRoute()" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left"
+      title="Tooltip on left">
+      Anécdotas
+    </button>
 
-      </div>
+  </div>
 
-      <br><br>
+  <br><br>
 
 
 
 
 
-      <script src="/javascripts/tourism.js"></script>
-      <script src="/javascripts/main.js"></script>
+  <script src="/javascripts/tourism.js"></script>
+  <script src="/javascripts/main.js"></script>
 </body>
 
 </html>
